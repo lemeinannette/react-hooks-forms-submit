@@ -12,8 +12,15 @@ function Form(props) {
     setLastName(event.target.value);
   }
 
+  function handleSubmit(event) {
+    event.preventDefault(); // Prevent the default form submission behavior
+    // You can use firstName and lastName as needed (e.g., send them to an API, display a message, etc.)
+    console.log("First Name:", firstName);
+    console.log("Last Name:", lastName);
+  }
+
   return (
-    <form>
+    <form onSubmit={handleSubmit}>
       <input type="text" onChange={handleFirstNameChange} value={firstName} />
       <input type="text" onChange={handleLastNameChange} value={lastName} />
       <button type="submit">Submit</button>
